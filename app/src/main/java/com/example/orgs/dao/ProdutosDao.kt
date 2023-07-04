@@ -1,7 +1,9 @@
 package com.example.orgs.dao
 
 import com.example.orgs.models.Produto
-
+import java.math.BigDecimal
+// transforma uma imagem em diferentes densidades de telas
+// https://nsimage.brosteins.com/
 class ProdutosDao {
 
     fun adiciona(produto: Produto) {
@@ -13,6 +15,8 @@ class ProdutosDao {
     }
 
     companion object {
-        private val produtos = mutableListOf<Produto>()
+        private val produtos = mutableListOf<Produto>(
+            Produto(nome =  "Frutas vermelhas", descricao = "Melão, caju, laranja, limão.", valor = BigDecimal("12.90"))
+        )
     }
 }

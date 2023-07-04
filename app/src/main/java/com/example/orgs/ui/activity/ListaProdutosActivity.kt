@@ -14,16 +14,15 @@ class ListaProdutosActivity: AppCompatActivity(R.layout.activity_lista_produtos)
 
     private val dao = ProdutosDao()
     private val adapter = ListaProdutosAdapter(context = this, produtos = dao.buscaTodos())
-
     private val binding by lazy {
         ActivityListaProdutosBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(binding.root)
         configuraRecyclerView()
         configuraFab()
-        setContentView(binding.root)
     }
 
     override fun onResume() {
