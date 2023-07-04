@@ -1,4 +1,4 @@
-# android-kt-2
+# android-nativo-kt-2
 ## Android com Kotlin: personalize o seu app
 ### Conteúdo:
 - [X] Personalizando o item do produto
