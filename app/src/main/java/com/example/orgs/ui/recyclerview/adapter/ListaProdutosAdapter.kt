@@ -2,9 +2,11 @@ package com.example.orgs.ui.recyclerview.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.orgs.R
 import com.example.orgs.databinding.ProdutoItemBinding
 import com.example.orgs.models.Produto
 import java.math.BigDecimal
@@ -28,7 +30,19 @@ class ListaProdutosAdapter(
             this.nome.text = produto.nome
             this.descricao.text = produto.descricao
             this.valor.text = formatarParaMoeadBrasileira(produto.valor)
-            this.biding.imageView.load(produto.imagem)
+
+            val visibilidade = if (produto.imagem != null) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+
+            biding.imageView.visibility = visibilidade
+
+            this.biding.imageView.load(produto.imagem) {
+                fallback(R.drawable.error) // Quando a URL/Image é null
+                error(R.drawable.error) // Quando a string URL não é válida
+            }
         }
 
         private fun formatarParaMoeadBrasileira(valor: BigDecimal): String {
