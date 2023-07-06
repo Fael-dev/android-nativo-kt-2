@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.orgs.R
 import com.example.orgs.databinding.ProdutoItemBinding
+import com.example.orgs.extensions.tentaCarregarImagem
 import com.example.orgs.models.Produto
 import java.math.BigDecimal
 import java.text.NumberFormat
@@ -39,10 +40,7 @@ class ListaProdutosAdapter(
 
             biding.imageView.visibility = visibilidade
 
-            this.biding.imageView.load(produto.imagem) {
-                fallback(R.drawable.error) // Quando a URL/Image é null
-                error(R.drawable.error) // Quando a string URL não é válida
-            }
+            this.biding.imageView.tentaCarregarImagem(produto.imagem)
         }
 
         private fun formatarParaMoeadBrasileira(valor: BigDecimal): String {

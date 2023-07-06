@@ -8,7 +8,9 @@ import com.example.orgs.R
 import com.example.orgs.dao.ProdutosDao
 import com.example.orgs.databinding.ActivityFormularioProdutoBinding
 import com.example.orgs.databinding.FormularioImagemBinding
+import com.example.orgs.extensions.tentaCarregarImagem
 import com.example.orgs.models.Produto
+import com.example.orgs.ui.dialog.FormularioImagemDialog
 import java.math.BigDecimal
 
 class FormularioProdutoActivity : AppCompatActivity() {
@@ -21,23 +23,13 @@ class FormularioProdutoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(this.biding.root)
+        title = "Cadastrar produto"
         configuraBotaoSalvar()
         this.biding.activityFormProdutoImg.setOnClickListener {
-            val bidingFormularioImagem = FormularioImagemBinding.inflate(layoutInflater)
-            bidingFormularioImagem.formularioImagemBotaoCarregar.setOnClickListener {
-                val url = bidingFormularioImagem.formularioImagemUrl.text.toString()
-                bidingFormularioImagem.formularioImagemImgview.load(url)
+            FormularioImagemDialog(this).mostra(url) { imagem ->
+                url = imagem
+                biding.activityFormProdutoImg.tentaCarregarImagem(url)
             }
-            AlertDialog.Builder(this)
-                .setView(bidingFormularioImagem.root)
-                .setPositiveButton("Confirmar") { _, _ ->
-                    url = bidingFormularioImagem.formularioImagemUrl.text.toString()
-                    this.biding.activityFormProdutoImg.load(url)
-                }
-                .setNegativeButton("Cancelar") { _, _ ->
-
-                }
-                .show()
         }
     }
 
