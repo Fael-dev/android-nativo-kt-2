@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.orgs.databinding.ProdutoItemBinding
 import com.example.orgs.models.Produto
 import java.math.BigDecimal
@@ -21,11 +22,13 @@ class ListaProdutosAdapter(
         private val nome = biding.produtoItemNome
         private val descricao = biding.produtoItemDescricao
         private val valor = biding.produtoItemValor
+        private val biding = biding
 
         fun vincula(produto: Produto) {
             this.nome.text = produto.nome
             this.descricao.text = produto.descricao
             this.valor.text = formatarParaMoeadBrasileira(produto.valor)
+            this.biding.imageView.load("https://img.freepik.com/fotos-gratis/frutas-sortidas-e-mistas_74190-6961.jpg?w=996&t=st=1688680456~exp=1688681056~hmac=df15635bc43baa818fa1226def0467d4818f631d9949b810e7d0602fcdd77838")
         }
 
         private fun formatarParaMoeadBrasileira(valor: BigDecimal): String {
