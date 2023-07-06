@@ -6,4 +6,3 @@
 - [X] Melhorando o visual do formulário
 - [X] Utilizando imagens com o Coil
 - [X] Finalizando o projeto
-  
