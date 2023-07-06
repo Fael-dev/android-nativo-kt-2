@@ -69,7 +69,7 @@
             app:layout_constraintEnd_toStartOf="@+id/produto_item_nome"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/frutas_vermelhas"
+            app:srcCompat="@drawable/frutas_vermelhas"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

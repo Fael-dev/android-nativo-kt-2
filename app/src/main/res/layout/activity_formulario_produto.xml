@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/frutas_vermelhas" />
+            app:srcCompat="@drawable/imagem_padrao" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/formulario_produto_textlayout_nome"
@@ -35,6 +35,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:id="@+id/activity_formulario_produto_nome"
                 android:hint="Nome"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -53,6 +54,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:id="@+id/activity_formulario_produto_descricao"
                 android:hint="Descrição"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -71,6 +73,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
                 android:id="@+id/activity_formulario_produto_valor"
                 android:hint="Valor"/>
         </com.google.android.material.textfield.TextInputLayout>
